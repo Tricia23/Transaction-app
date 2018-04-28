@@ -1,0 +1,84 @@
+.navbar-brands{
+margin-left: 730px;
+}
+.invtitle{
+    margin-left: 400px;
+    margin-top: 30px;
+}
+.transtitle{
+      margin-left: 550px;
+    margin-top: 20px;
+}
+.invname{
+    margin-left: 550px;
+    margin-top:15px;
+}
+.invprice{
+   margin-left: 550px;
+    margin-top:15px;
+}
+.addtrans{
+     margin-left: 550px;
+    margin-top:20px;
+}
+
+.form-group{
+    width: 750px;
+     margin-left: 250px;
+}
+hr{
+    width:850px;
+    margin-left:200px;
+}
+li {
+    float: left;
+}
+.column1{
+    width: 250px;
+    margin-left: 230px;
+}
+.column2{
+    width: 350px;
+
+
+.register{
+    width: 400px;
+  }
+
+
+
+#pills-tabContent{
+    margin-left: 300px;
+}
+}
+.column3{
+    width: 180px;
+
+
+}
+.btn-primary2{
+    margin-left: 20px;
+    background-color: red;
+    color : whitesmoke;
+}
+
+.btn-primary3{
+    margin-left: 600px;
+    background-color: purple;
+    color : whitesmoke;
+}
+.login{
+    margin-left: 250px;
+    width: 400px;
+}
+
+.register{
+    width: 400px;
+}
+.nav-pills .nav-link.active{
+    color: whitesmoke;
+    background-color: purple;
+}
+.nav-link{
+    color: purple;
+}
