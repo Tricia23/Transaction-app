@@ -50,8 +50,38 @@
   <h3 class="transtitle">Transactions</h3>
 </div>
 <div>
-  <h5 class="addtrans">Add Transaction:<input class="btn btn-primary" type="button" value="+"></h5>
-</div>
+  <h5 class="addtrans">Add Transaction:<!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary4" data-toggle="modal" data-target="#exampleModalCenter">
+        +
+      </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Add Transaction</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h3 id="transmodal">Transaction Name</h3>
+            <input type="text" class="form-control" id="transnamemodal" aria-describedby="" placeholder="eg.Mobile app">
+
+            <h3 class="pricemodal">Price($)</h3>
+           <input type="text" class="form-control" id="pricemodal" aria-describedby="" placeholder="eg.10000">
+          </div>
+          <div class="modal-footer">
+           <button type="button" class="btn btn-secondary" data-dismiss="modal">Discard transaction</button>
+           <button type="button" class="btn btn-primary4">Save transaction</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </h5>
+</div
+
 <hr>
 <div class="row">
   <div class="column1" onclick="openTab('b1');"><b>#</b></div>

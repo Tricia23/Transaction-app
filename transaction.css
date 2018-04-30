@@ -82,3 +82,20 @@ li {
 .nav-link{
     color: purple;
 }
+
+.btn-primary4 {
+        background-color:purple;
+        color: peachpuff;
+    }
+
+    #transmodal{
+        margin-left: 100px;
+    }
+ .btn-primary5{
+     background-color:purple;
+        color: peachpuff;
+}
+
+#take primary:focus{
+    background-color: forestgreen;
+}
