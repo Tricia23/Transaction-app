@@ -80,7 +80,7 @@ li {
     background-color: purple;
 }
 .nav-link{
-    color: purple;
+    color: purple;N
 }
 
 .btn-primary4 {
@@ -98,4 +98,7 @@ li {
 
 #take primary:focus{
     background-color: forestgreen;
+}
+.error{
+    color:red;
 }

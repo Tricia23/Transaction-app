@@ -1,3 +1,7 @@
+<?php
+session_start();
+session_destroy();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,31 +62,55 @@
 
   <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-  <form>
+  <form action="server.php" method="post">
   <div class="form-group">
     <label for="regname" style="text-align:center;display: block;">Name</label>
-    <input type="email" class="form-control" id="regname" aria-describedby="emailHelp" placeholder="eg. Chris Hogan">
+    <input type="text" class="form-control" id="regname" aria-describedby="emailHelp" placeholder="eg. Chris Hogan" name="name">
+    <?php
+    if (!empty($_SESSION['nameError']) && $_SESSION['nameError'] != false) {
+      echo "<span class='error'>".$_SESSION['nameError']."</span>";
+    }
+    ?>
 
   </div>
   <div class="form-group">
     <label for="regemail" style="text-align:center;display: block;">Email Adress</label>
-    <input type="password" class="form-control" id="regemail" placeholder="eg. chris@invoiceapp.com">
+    <input type="email" class="form-control" id="regemail" placeholder="eg. chris@invoiceapp.com" name="email">
+    <?php
+    if (!empty($_SESSION['emailError']) && $_SESSION['emailError'] != false) {
+       echo "<span class='error'>".$_SESSION['emailError']."</span>";
+    }
+    ?>
   </div>
+
+
   <div class="form-group">
     <label for="regcompany" style="text-align:center;display: block;">Company's Name</label>
-    <input type="email" class="form-control" id="regcompany" aria-describedby="emailHelp" placeholder="eg. Chris Tech">
+    <input type="text" class="form-control" id="regcompany" aria-describedby="emailHelp" placeholder="eg. Chris Tech" name="company">
+    <?php
+    if (!empty($_SESSION['companyError']) && $_SESSION['companyError'] != false) {
+         echo "<span class='error'>".$_SESSION['companyError']."</span>";
+    }
+
+    ?>
 
   </div>
   <div class="form-group">
     <label for="regpassword" style="text-align:center;display: block;">Password</label>
-    <input type="password" class="form-control" id="regpassword" placeholder="Enter Password">
+    <input type="password" class="form-control" id="regpassword" placeholder="Enter Password" name="password">
+    <?php
+    if (!empty($_SESSION['passwordError']) && $_SESSION['passwordError'] != false) {
+         echo "<span class='error'>".$_SESSION['passwordError']."</span>";
+    }
+
+    ?>
   </div>
 
   <div class="form-group">
     <label for="regpasswordcon" style="text-align:center;display: block;">Confirm Password</label>
-    <input type="password" class="form-control" id="regpasswordcon" placeholder="Confirm Password">
+    <input type="password" class="form-control" id="regpasswordcon" placeholder="Confirm Password" name="cpassword">
   </div>
-  <button type="submit" class="btn btn-primary3" >Register</button>
+  <button type="submit" class="btn btn-primary3" name="register" >Register</button>
 </form>
 
   </div>
