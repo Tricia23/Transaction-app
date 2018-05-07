@@ -102,3 +102,7 @@ li {
 .error{
     color:red;
 }
+.errorpass{
+    color:red;
+    margin-left: 250px;
+}

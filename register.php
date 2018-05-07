@@ -40,18 +40,28 @@ session_destroy();
 
   <!--Login content-->
   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-  <form>
+  <form action="login.php" method="POST">
   <div class="form-group">
     <label for="exampleInputEmail1" style="text-align:center;display: block;">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="emaillogin">
+    <?php
+    if (!empty($_SESSION['logemailError']) && $_SESSION['logemailError'] != false) {
+      echo "<span class='error'>" . $_SESSION['logemailError'] . "</span>";
+    }
+    ?>
 
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1" style="text-align:center;display: block;">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="passwordlogin">
   </div>
+  <?php
+  if (!empty($_SESSION['logpasswordError']) && $_SESSION['logpasswordError'] != false) {
+    echo "<span class='errorpass'>" . $_SESSION['logpasswordError'] . "</span>";
+  }
+  ?>
 
-  <button type="submit" class="btn btn-primary3">Login</button>
+  <div> <button type="submit" class="btn btn-primary3" name="login">Login</button> </div>
 </form>
 
   </div>
@@ -68,7 +78,7 @@ session_destroy();
     <input type="text" class="form-control" id="regname" aria-describedby="emailHelp" placeholder="eg. Chris Hogan" name="name">
     <?php
     if (!empty($_SESSION['nameError']) && $_SESSION['nameError'] != false) {
-      echo "<span class='error'>".$_SESSION['nameError']."</span>";
+      echo "<span class='error'>" . $_SESSION['nameError'] . "</span>";
     }
     ?>
 
@@ -78,7 +88,7 @@ session_destroy();
     <input type="email" class="form-control" id="regemail" placeholder="eg. chris@invoiceapp.com" name="email">
     <?php
     if (!empty($_SESSION['emailError']) && $_SESSION['emailError'] != false) {
-       echo "<span class='error'>".$_SESSION['emailError']."</span>";
+      echo "<span class='error'>" . $_SESSION['emailError'] . "</span>";
     }
     ?>
   </div>
@@ -89,7 +99,7 @@ session_destroy();
     <input type="text" class="form-control" id="regcompany" aria-describedby="emailHelp" placeholder="eg. Chris Tech" name="company">
     <?php
     if (!empty($_SESSION['companyError']) && $_SESSION['companyError'] != false) {
-         echo "<span class='error'>".$_SESSION['companyError']."</span>";
+      echo "<span class='error'>" . $_SESSION['companyError'] . "</span>";
     }
 
     ?>
@@ -100,7 +110,7 @@ session_destroy();
     <input type="password" class="form-control" id="regpassword" placeholder="Enter Password" name="password">
     <?php
     if (!empty($_SESSION['passwordError']) && $_SESSION['passwordError'] != false) {
-         echo "<span class='error'>".$_SESSION['passwordError']."</span>";
+      echo "<span class='error'>" . $_SESSION['passwordError'] . "</span>";
     }
 
     ?>

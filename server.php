@@ -47,7 +47,12 @@ if ($nameError == false && $emailError == false && $companyError == false && $pa
     $connection = mysqli_connect("localhost", "root", "secret", "transaction");
     $query = "INSERT INTO users ( name, email, password, company) VALUES ('{$name}', '{$email}', '{$hashedpassword}', '{$company}')";
 
+    $inserted = mysqli_query($connection, $query);
 
+    if ($inserted) {
+        $_SESSION['login_user'] = $email; // Initializing Session
+        header("location: dashboard.php"); // Redirecting To Other Pag
+    }
 
 } else {
     $_SESSION['nameError'] = $nameError;
@@ -59,4 +64,6 @@ if ($nameError == false && $emailError == false && $companyError == false && $pa
 }
 
 
+
 ?>
+
