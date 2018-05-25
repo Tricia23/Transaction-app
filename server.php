@@ -51,7 +51,7 @@ if ($nameError == false && $emailError == false && $companyError == false && $pa
 
     if ($inserted) {
         $_SESSION['login_user'] = $email; // Initializing Session
-        header("location: dashboard.php"); // Redirecting To Other Pag
+        header("location: index.php"); // Redirecting To Other Pag
     }
 
 } else {

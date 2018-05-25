@@ -7,12 +7,13 @@ $logpasswordError = false;
 
 $emaillogin = $_POST['emaillogin'];
 $passwordlogin = $_POST['passwordlogin'];
+$hashedpasswordlogin = md5($passwordlogin);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 //check if email is empty//
     if (empty($_POST["emaillogin"])) {
 
-        $logemailError = 'Please enter username.';
+        $logemailError = 'Please enter email.';
 
     }
 
@@ -25,13 +26,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($logemailError == false && $logpasswordError == false) {
         // valid
-        $connection = mysql_connect("localhost", "root", "secret", "transaction");
-        $query = mysql_query("select * from users where password='$password' AND email='$email'", $connection);
-        $rows = mysql_num_rows($query);
+        $connection = mysqli_connect("localhost", "root", "secret", "transaction");
+        $query = mysqli_query($connection, "select * from users where password='$hashedpasswordlogin' AND email='$emaillogin'");
+        $rows = mysqli_num_rows($query);
         if ($rows == 1) {
             $_SESSION['login_user'] = $emaillogin; // Initializing Session
-            header("location: dashboard.php"); // Redirecting To Other Page
+            header("location: index.php"); // Redirecting To Other Page
         } else {
+            die("hello");
             // invalid
             $_SESSION['loginError'] = "Username or Password is invalid";
 
