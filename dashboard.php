@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -10,7 +9,15 @@
      <link rel="stylesheet" href="transaction.css">
 </head>
 <body>
+<?php
+session_start();
 
+$connect = mysqli_connect("localhost", "root", "secret", "transaction");
+
+$sql = "SELECT * FROM users WHERE email= '" . $_SESSION['login_user'] . "'";
+$query = mysqli_query($connect, $sql);
+$user = mysqli_fetch_array($query);
+?>
 
     <hr>
 <div class="row">
@@ -21,27 +28,30 @@
   <hr>
 </div>
 
-<div class="row">
-  <div class="column1" onclick="openTab('b1');">1</div>
-  <div class="column2" onclick="openTab('b2');"> scotch Invoice</b></div>
-  <div class="column3" onclick="openTab('b3');"> Upload</b></div>
+
+<?php
+$sql2 = "SELECT * FROM invoices WHERE user_id= '" . $user['id'] . "'";
+$query = mysqli_query($connect, $sql2);
+
+while ($invoice = mysqli_fetch_array($query)) {
+  ?>
+
+  <div class="row">
+  <div class="column1" onclick="openTab('b1');"><?php echo $invoice['id']; ?></div>
+  <div class="column2" onclick="openTab('b2');"><?php echo $invoice['name']; ?></b></div>
+  <div class="column3" onclick="openTab('b3');"><?php echo $invoice['status']; ?></b></div>
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" style="background-color: #20bf20;color: black;">
-        To Invoice
+        View Invoice
       </button>
 
   <hr>
 </div>
 
-<div class="row">
-  <div class="column1" onclick="openTab('b1');">2</div>
-  <div class="column2" onclick="openTab('b2');"> clients invoice</b></div>
-  <div class="column3" onclick="openTab('b3');"> Upload</b></div>
- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" style="background-color: #20bf20; color: black;">
-        To Invoice
-      </button>
+  <?php
 
-  <hr>
-</div>
+}
+?>
+
 </body>
 </html>
 

@@ -45,12 +45,13 @@ session_start();
 <div>
   <h3 class="invtitle">Enter Details Below To Create Invoice</h3>
 </div>
-<form id="form">
+<form id="form" method="post" action="prices.php">
+
 <div>
   <h5 class="invname">Invoice Name:</h5>
 </div>
-<div class="form-group">
-  <input type="text" class="form-control" id="usr">
+<div class="form-group" >
+  <input type="text" class="form-control" id="usr" name="invname">
 </div>
 
 <div>
@@ -65,7 +66,6 @@ session_start();
       <button type="button" class="btn btn-primary4" data-toggle="modal" data-target="#exampleModalCenter">
         +
       </button>
-</form>
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -101,26 +101,21 @@ session_start();
   <div class="column1" onclick="openTab('b1');"><b>#</b></div>
   <div class="column2" onclick="openTab('b2');"> <b>Transaction name</b></div>
   <div class="column3" onclick="openTab('b3');"> <b> Price($)</b></div>
-  <input class="btn btn-primary2" type="button" value="X">
+  <input class="btn btn-primary2" type="button" value="X" id="delete">
   <hr>
 </div>
-
+<!--transaction js query div-->
 <div id="transaction">
-
-  <div class="row">
-    <div class="column1" name="transno" id="transno">2</div>
-    <div class="column2" name="transname" id="transname"> Mobile Emergency App</b></div>
-    <div class="column3" name="transprice" id="transprice"> 10000</b></div>
-    <input class="btn btn-primary2" type="button" value="X">
-    <hr>
-  </div>
-
-
+  <!--Hidden Form for the transaction name and prices-->
+ <!-- <input type="hidden" name="transactions[0][name]" value="name">
+  <input type="hidden" name="transactions[0][price]" value="6540"> -->
 
 </div>
+<input class="btn btn-primary3" type="submit" value="Create Invoice">
+</form>
 
 
-<input class="btn btn-primary3" type="button" value="Create Invoice">
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonym<i class="fas fa-user"></i>ous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>

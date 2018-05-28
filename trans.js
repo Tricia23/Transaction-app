@@ -11,11 +11,23 @@ $('#save-transaction').on('click', function (e) {
     <div class="column1" name="transno" id="transno">${txcount}</div>
     <div class="column2" name"transname" id="transname"> ${transname}</b></div>
     <div class="column3" name="transprice" id="transprice"> ${transprice}</b></div>
-    <input class="btn btn-primary2" type="button" value="X">
+    <button class="btn btn-primary2 transaction-delete" type="button">X</button>
     <hr>
+    <input type="hidden" name="transactions[${txcount}][name]" value="${transname}">
+    <input type="hidden" name="transactions[${txcount}][price]" value="${transprice}">
   </div>`;
+
   $('#transaction').append(elem);
 
   txcount++;
   return false;
+});
+
+
+
+$(document).on('click', '.transaction-delete', function (e) {
+  e.preventDefault();
+
+  $(this).parent().remove()
+
 });
